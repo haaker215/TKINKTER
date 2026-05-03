@@ -1,0 +1,36 @@
+from tkinter import *
+
+window = Tk()
+window.title("Intrest Calculator")
+window.geometry("400x300")
+
+Label(window, text="Principal Amount").pack()
+principal = Entry(window)
+principal.pack()
+
+Label(window, text="Rate of Interest").pack()
+rate = Entry(window)
+rate.pack()
+
+Label(window, text="Time (in years)").pack()
+time = Entry(window)
+time.pack()
+
+def calculate():
+    p = float(principal.get())
+    r = float(rate.get())
+    t = float(time.get())
+    interest = (p * r * t) / 100
+    compound_interest = p * (1 + r / 100) ** t - p
+    result = f"Simple Interest: {interest:.2f}\nCompound Interest: {compound_interest:.2f}\nCompound Interest is more than Simple Interest by: {compound_interest - interest:.2f}"
+    result_label.config(text=result)
+
+Button(window, text="Calculate", command=calculate).pack()
+result_label = Label(window, text="")
+result_label.pack()
+window.mainloop()
+
+
+
+
+
