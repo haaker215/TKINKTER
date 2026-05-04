@@ -1,0 +1,16 @@
+from tkinter import *
+window = Tk()
+window.geometry("400x300")
+window.title("Main")
+def top_window():
+    top = Toplevel(window)
+    top.geometry("200x150")
+    top.title("Top Window")
+    l2 = Label(top, text="This is a top window")
+    l2.pack()
+    top.mainloop()
+l = Label(window, text="This is the main window")
+btn = Button(window, text="Open Top Window", command=top_window)
+l.pack()
+btn.pack()
+window.mainloop()
